@@ -1,0 +1,52 @@
+$dot-list-item-color: #333;
+$dot-list-item-active-inner-color: #ddd;
+
+.carousel-wrap{
+  position: relative;
+  overflow: hidden;
+  // 轮播主体
+  .carousel-container{
+    position: absolute;
+    width:100%;height:100%;
+    transition: all 0.5s;
+    .carousel-item{
+      position: absolute;
+      width:100%;
+      height:100%;
+      background-position: bottom center;
+      background-size: cover;
+      &:nth-child(2){
+        left:100%;
+      }
+      &:nth-child(3){
+        left:200%;
+      }
+    }
+  }
+
+  // 点列表
+  ul.carousel-dot-list{
+    position:absolute;
+    bottom: 0;
+    width:100%;height:40px;
+    display: flex; justify-content: center; align-items: center;
+    li{
+      width:40px; height:2px;
+      margin: 0 4px;
+      border-radius: 2px;
+      background: $dot-list-item-color;
+      .inner{
+        width:0;height:100%;
+        
+      }
+    }
+    li.active{
+      .inner{
+        width:100%;
+        transition: width 2.5s;
+        background-color: $dot-list-item-active-inner-color;
+      }
+    }
+  }
+}
+
