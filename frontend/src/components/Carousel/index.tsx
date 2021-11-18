@@ -10,13 +10,14 @@ interface carouselProps {
 const Carousel: React.FC<carouselProps> = ({ carouselData }) => {
   const { height, timer, list } = carouselData
   //轮播定时器
-  let time = null 
+  let time: any = null 
   // 当前展示元素索引
   let [currentIndex, setCurrentIndex] = useState(0)
   // 加载生命周期
   useEffect(() => {
     beginToRun() 
     return () => {
+      clearInterval(time)
       time = null // 销毁清除定时器
     }
   }, [])
